@@ -1,6 +1,7 @@
 'use client';
 
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
+import { FiGithub as Github } from 'react-icons/fi';
 import { portfolioData } from '@/data/portfolio';
 import { useReveal } from '@/hooks/useReveal';
 

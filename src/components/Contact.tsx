@@ -1,6 +1,7 @@
 'use client';
 
-import { Mail, Phone, MapPin, Github, Linkedin, ExternalLink } from 'lucide-react';
+import { Mail, Phone, MapPin, ExternalLink } from 'lucide-react';
+import { FiGithub as Github, FiLinkedin as Linkedin } from 'react-icons/fi';
 import { portfolioData } from '@/data/portfolio';
 
 export default function Contact() {

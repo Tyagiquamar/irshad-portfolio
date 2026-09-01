@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react';
+import { ArrowRight, Mail } from 'lucide-react';
+import { FiGithub as Github, FiLinkedin as Linkedin } from 'react-icons/fi';
 import { portfolioData } from '@/data/portfolio';
 
 function prefersReducedMotion() {

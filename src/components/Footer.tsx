@@ -1,7 +1,8 @@
 'use client';
 
 import { portfolioData } from '@/data/portfolio';
-import { Github, Linkedin, Mail, ExternalLink } from 'lucide-react';
+import { Mail, ExternalLink } from 'lucide-react';
+import { FiGithub as Github, FiLinkedin as Linkedin } from 'react-icons/fi';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
