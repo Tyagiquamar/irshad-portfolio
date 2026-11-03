@@ -1,113 +1,75 @@
 'use client';
 
-import { portfolioData } from '@/data/portfolio';
-import { Mail, ExternalLink } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import { FiGithub as Github, FiLinkedin as Linkedin } from 'react-icons/fi';
+import { portfolioData } from '@/data/portfolio';
+
+const links = [
+  { label: 'About', href: '#about' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'Achievements', href: '#achievements' },
+  { label: 'Contact', href: '#contact' },
+];
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
-
-  const quickLinks = [
-    { label: 'Home', href: '#home' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Skills', href: '#skills' },
-    { label: 'About', href: '#about' },
-    { label: 'Contact', href: '#contact' },
-  ];
-
-  const socialLinks = [
-    {
-      icon: Github,
-      href: portfolioData.social.github,
-      label: 'GitHub',
-    },
-    {
-      icon: Linkedin,
-      href: portfolioData.social.linkedin,
-      label: 'LinkedIn',
-    },
-    {
-      icon: Mail,
-      href: `mailto:${portfolioData.email}`,
-      label: 'Email',
-    },
-  ];
+  const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 text-gray-100">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid md:grid-cols-3 gap-12 mb-12">
-          {/* Brand */}
-          <div>
-            <h3 className="text-2xl font-bold text-white mb-4">
-              <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
-                Irshad
-              </span>
-            </h3>
-            <p className="text-gray-400 mb-6">
-              Full-stack developer & competitive programmer building high-performance systems.
-            </p>
-            <div className="flex gap-4">
-              {socialLinks.map((social, index) => {
-                const Icon = social.icon;
-                return (
-                  <a
-                    key={index}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-3 bg-gray-800 rounded-lg hover:bg-blue-600 transition-colors"
-                    title={social.label}
-                  >
-                    <Icon size={20} />
-                  </a>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-white font-bold mb-6">Quick Links</h4>
-            <ul className="space-y-3">
-              {quickLinks.map((link, index) => (
-                <li key={index}>
-                  <a
-                    href={link.href}
-                    className="text-gray-400 hover:text-blue-400 transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* CTA */}
-          <div>
-            <h4 className="text-white font-bold mb-6">Ready to Work Together?</h4>
-            <p className="text-gray-400 mb-4">
-              Let's discuss your project and how I can help you achieve your goals.
-            </p>
+    <footer className="border-t border-border bg-bg">
+      <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-12 sm:px-6 md:flex-row md:items-start md:justify-between lg:px-8">
+        <div>
+          <p className="font-display text-lg font-semibold">
+            Mohd <span className="text-accent">Irshad</span>
+          </p>
+          <p className="mt-2 max-w-sm text-sm text-muted">
+            Software engineer. Durable systems, evaluation tooling, and
+            competitive programming.
+          </p>
+          <div className="mt-4 flex gap-3">
+            <a
+              href={portfolioData.social.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              className="rounded-full border border-border p-2 text-muted hover:text-fg"
+            >
+              <Github size={16} />
+            </a>
+            <a
+              href={portfolioData.social.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="rounded-full border border-border p-2 text-muted hover:text-fg"
+            >
+              <Linkedin size={16} />
+            </a>
             <a
               href={`mailto:${portfolioData.email}`}
-              className="inline-flex items-center gap-2 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-semibold"
+              aria-label="Email"
+              className="rounded-full border border-border p-2 text-muted hover:text-fg"
             >
-              Send Email <ExternalLink size={16} />
+              <Mail size={16} />
             </a>
           </div>
         </div>
-
-        {/* Divider */}
-        <div className="border-t border-gray-800"></div>
-
-        {/* Bottom */}
-        <div className="pt-8 flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm">
-          <p>&copy; {currentYear} Mohd Irshad. All rights reserved.</p>
-          <p>
-            Designed & Built with <span className="text-red-500">❤️</span> using Next.js & Tailwind CSS
-          </p>
-        </div>
+        <nav aria-label="Footer">
+          <ul className="flex flex-col gap-2 text-sm text-muted">
+            {links.map((link) => (
+              <li key={link.href}>
+                <a href={link.href} className="hover:text-fg">
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+      <div className="border-t border-border">
+        <p className="mx-auto max-w-6xl px-4 py-6 text-sm text-muted sm:px-6 lg:px-8">
+          © {year} Mohd Irshad. Built with Next.js and Tailwind CSS.
+        </p>
       </div>
     </footer>
   );

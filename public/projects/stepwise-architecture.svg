@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 860" role="img">
+  <title>Stepwise architecture</title>
+  <desc>Factual architecture of Stepwise: clients talk to a workflow API, workers coordinate only through PostgreSQL, Redis fans out live events.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#182033"/>
+      <stop offset="100%" stop-color="#121a2b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1440" height="860" fill="url(#bg)"/>
+  <rect x="48" y="48" width="1344" height="764" rx="28" fill="#0f172a" stroke="#263248"/>
+  <text x="88" y="108" fill="#93c5fd" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" letter-spacing="3">STEPWISE / ARCHITECTURE</text>
+  <text x="88" y="154" fill="#e2e8f0" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="36" font-weight="700">Durable DAG execution</text>
+  <text x="88" y="192" fill="#94a3b8" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18">PostgreSQL is the source of truth. Workers never call the API.</text>
+  <rect x="88" y="228" width="280" height="28" rx="14" fill="#1e3a5f"/>
+  <text x="228" y="247" text-anchor="middle" fill="#bfdbfe" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13">Hosted dashboard not deployed</text>
+
+  <g>
+    <rect x="88" y="300" width="240" height="140" rx="18" fill="url(#card)" stroke="#334155"/>
+    <text x="112" y="344" fill="#60a5fa" font-size="13" font-family="Segoe UI, Helvetica, Arial, sans-serif">CLIENT</text>
+    <text x="112" y="378" fill="#f8fafc" font-size="20" font-weight="600" font-family="Segoe UI, Helvetica, Arial, sans-serif">REST + SSE</text>
+    <text x="112" y="406" fill="#94a3b8" font-size="14" font-family="Segoe UI, Helvetica, Arial, sans-serif">Auth, drafts, launch</text>
+  </g>
+  <g>
+    <rect x="400" y="280" width="300" height="180" rx="18" fill="url(#card)" stroke="#60a5fa"/>
+    <text x="424" y="324" fill="#60a5fa" font-size="13" font-family="Segoe UI, Helvetica, Arial, sans-serif">WORKFLOW API</text>
+    <text x="424" y="360" fill="#f8fafc" font-size="22" font-weight="600" font-family="Segoe UI, Helvetica, Arial, sans-serif">Spring Boot 3.5</text>
+    <text x="424" y="392" fill="#94a3b8" font-size="14" font-family="Segoe UI, Helvetica, Arial, sans-serif">Validate / publish / activate</text>
+    <text x="424" y="416" fill="#94a3b8" font-size="14" font-family="Segoe UI, Helvetica, Arial, sans-serif">Schedules / outbox / SSE hub</text>
+  </g>
+  <g>
+    <rect x="780" y="280" width="300" height="180" rx="18" fill="url(#card)" stroke="#334155"/>
+    <text x="804" y="324" fill="#818cf8" font-size="13" font-family="Segoe UI, Helvetica, Arial, sans-serif">WORKERS x N</text>
+    <text x="804" y="360" fill="#f8fafc" font-size="22" font-weight="600" font-family="Segoe UI, Helvetica, Arial, sans-serif">Claim loop</text>
+    <text x="804" y="392" fill="#94a3b8" font-size="14" font-family="Segoe UI, Helvetica, Arial, sans-serif">Leases / heartbeats / fencing</text>
+    <text x="804" y="416" fill="#94a3b8" font-size="14" font-family="Segoe UI, Helvetica, Arial, sans-serif">NO_OP / DELAY / HTTP / TRANSFORM</text>
+  </g>
+  <g>
+    <rect x="1150" y="300" width="202" height="140" rx="18" fill="url(#card)" stroke="#334155"/>
+    <text x="1174" y="344" fill="#34d399" font-size="13" font-family="Segoe UI, Helvetica, Arial, sans-serif">REDIS</text>
+    <text x="1174" y="378" fill="#f8fafc" font-size="18" font-weight="600" font-family="Segoe UI, Helvetica, Arial, sans-serif">Live events</text>
+    <text x="1174" y="406" fill="#94a3b8" font-size="13" font-family="Segoe UI, Helvetica, Arial, sans-serif">Pub/sub fan-out</text>
+  </g>
+
+  <rect x="250" y="540" width="940" height="200" rx="22" fill="url(#card)" stroke="#60a5fa"/>
+  <text x="290" y="590" fill="#60a5fa" font-size="13" font-family="Segoe UI, Helvetica, Arial, sans-serif">POSTGRESQL / SINGLE SOURCE OF TRUTH</text>
+  <text x="290" y="634" fill="#f8fafc" font-size="26" font-weight="700" font-family="Segoe UI, Helvetica, Arial, sans-serif">SKIP LOCKED claims, row locks, fencing tokens</text>
+  <text x="290" y="674" fill="#94a3b8" font-size="16" font-family="Segoe UI, Helvetica, Arial, sans-serif">Task attempts, execution events, tenant isolation, cron schedules, and audit log all live here.</text>
+  <text x="290" y="704" fill="#64748b" font-size="14" font-family="Segoe UI, Helvetica, Arial, sans-serif">Crash recovery is at most one lease duration. Execution is at-least-once, not exactly-once.</text>
+
+  <path d="M328 440 H400" stroke="#60a5fa" stroke-width="2"/>
+  <path d="M700 370 H780" stroke="#334155" stroke-width="2"/>
+  <path d="M1080 370 H1150" stroke="#334155" stroke-width="2"/>
+  <path d="M550 460 V540" stroke="#60a5fa" stroke-width="2"/>
+  <path d="M930 460 V540" stroke="#818cf8" stroke-width="2"/>
+</svg>

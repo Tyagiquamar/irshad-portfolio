@@ -2,49 +2,50 @@
 
 import { Briefcase, Calendar, MapPin } from 'lucide-react';
 import { portfolioData } from '@/data/portfolio';
+import { useReveal } from '@/hooks/useReveal';
 
 export default function Experience() {
+  const { ref, visible } = useReveal<HTMLDivElement>();
+
   return (
-    <section id="experience" className="py-20 bg-gray-50">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Work Experience</h2>
-          <p className="text-xl text-gray-600">Where I&apos;ve built, shipped, and learned</p>
-        </div>
-
-        <div className="relative border-l-2 border-blue-200 ml-3 space-y-12">
-          {portfolioData.experience.map((exp, index) => (
-            <div key={index} className="relative pl-8 md:pl-12">
-              {/* Timeline node */}
-              <span className="absolute -left-[9px] top-6 w-4 h-4 rounded-full bg-blue-600 ring-4 ring-blue-100" />
-
-              <div className="bg-white p-6 md:p-8 rounded-xl border border-gray-200 shadow-sm hover:shadow-lg hover:border-blue-400 transition-all duration-300">
-                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold mb-3">
+    <section id="experience" className="py-20 sm:py-24">
+      <div
+        ref={ref}
+        className={`reveal-root mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 ${
+          visible ? 'is-visible' : ''
+        }`}
+      >
+        <p className="reveal text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+          Experience
+        </p>
+        <h2 className="reveal mt-3 font-display text-3xl font-semibold sm:text-4xl">
+          Work
+        </h2>
+        <div className="relative mt-10 space-y-8 border-l border-border pl-8">
+          {portfolioData.experience.map((exp) => (
+            <article key={exp.company} className="reveal relative">
+              <span className="absolute -left-[39px] top-6 h-3 w-3 rounded-full bg-accent" />
+              <div className="rounded-2xl border border-border bg-surface p-6">
+                <p className="inline-flex items-center gap-2 text-sm font-semibold text-accent">
                   <Briefcase size={14} />
                   {exp.position}
-                </span>
-
-                <h3 className="text-xl md:text-2xl font-bold text-gray-900">{exp.company}</h3>
-
-                <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-gray-500 mt-2 mb-4">
-                  <span className="flex items-center gap-1">
+                </p>
+                <h3 className="mt-2 font-display text-xl font-semibold">{exp.company}</h3>
+                <p className="mt-2 flex flex-wrap gap-4 text-sm text-muted">
+                  <span className="inline-flex items-center gap-1">
                     <Calendar size={14} /> {exp.duration}
                   </span>
-                  <span className="flex items-center gap-1">
+                  <span className="inline-flex items-center gap-1">
                     <MapPin size={14} /> {exp.location}
                   </span>
-                </div>
-
-                <ul className="space-y-2 text-gray-700 text-sm md:text-base">
-                  {exp.points.map((point, idx) => (
-                    <li key={idx} className="flex gap-2">
-                      <span className="text-blue-600 mt-1 shrink-0">→</span>
-                      <span>{point}</span>
-                    </li>
+                </p>
+                <ul className="mt-4 space-y-2 text-sm text-muted">
+                  {exp.points.map((point) => (
+                    <li key={point}>{point}</li>
                   ))}
                 </ul>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

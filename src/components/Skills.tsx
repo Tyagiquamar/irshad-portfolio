@@ -1,81 +1,106 @@
 'use client';
 
+import {
+  SiAndroid,
+  SiCplusplus,
+  SiDocker,
+  SiGit,
+  SiJavascript,
+  SiMysql,
+  SiNextdotjs,
+  SiPostgresql,
+  SiPython,
+  SiReact,
+  SiRedis,
+  SiSpringboot,
+  SiTypescript,
+} from 'react-icons/si';
+import { FaJava } from 'react-icons/fa';
 import { portfolioData } from '@/data/portfolio';
+import { useReveal } from '@/hooks/useReveal';
+
+const icons = [
+  { name: 'Java', icon: FaJava },
+  { name: 'Spring Boot', icon: SiSpringboot },
+  { name: 'React', icon: SiReact },
+  { name: 'TypeScript', icon: SiTypescript },
+  { name: 'Next.js', icon: SiNextdotjs },
+  { name: 'PostgreSQL', icon: SiPostgresql },
+  { name: 'Redis', icon: SiRedis },
+  { name: 'Docker', icon: SiDocker },
+  { name: 'Android', icon: SiAndroid },
+  { name: 'Python', icon: SiPython },
+  { name: 'C++', icon: SiCplusplus },
+  { name: 'JavaScript', icon: SiJavascript },
+  { name: 'MySQL', icon: SiMysql },
+  { name: 'Git', icon: SiGit },
+];
+
+const groups = [
+  { title: 'Languages', items: portfolioData.skills.languages },
+  { title: 'Frontend', items: portfolioData.skills.frontend },
+  { title: 'Backend', items: portfolioData.skills.backend },
+  { title: 'Data', items: portfolioData.skills.databases },
+  { title: 'Tooling', items: portfolioData.skills.devops },
+  { title: 'Foundations', items: portfolioData.skills.concepts },
+];
 
 export default function Skills() {
-  const skillCategories = [
-    {
-      title: 'Languages',
-      skills: portfolioData.skills.languages,
-      color: 'from-purple-500 to-purple-600',
-    },
-    {
-      title: 'Frontend',
-      skills: portfolioData.skills.frontend,
-      color: 'from-blue-500 to-blue-600',
-    },
-    {
-      title: 'Backend',
-      skills: portfolioData.skills.backend,
-      color: 'from-green-500 to-green-600',
-    },
-    {
-      title: 'Databases',
-      skills: portfolioData.skills.databases,
-      color: 'from-orange-500 to-orange-600',
-    },
-    {
-      title: 'DevOps & Tools',
-      skills: portfolioData.skills.devops,
-      color: 'from-red-500 to-red-600',
-    },
-    {
-      title: 'Core Concepts',
-      skills: portfolioData.skills.concepts,
-      color: 'from-indigo-500 to-indigo-600',
-    },
-  ];
+  const { ref, visible } = useReveal<HTMLDivElement>();
 
   return (
-    <section id="skills" className="py-20 bg-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Technical Skills</h2>
-          <p className="text-xl text-gray-600">Languages, frameworks, and technologies I work with</p>
+    <section id="skills" className="border-y border-border bg-elevated/60 py-20 sm:py-24">
+      <div
+        ref={ref}
+        className={`reveal-root mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 ${
+          visible ? 'is-visible' : ''
+        }`}
+      >
+        <p className="reveal text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+          Stack
+        </p>
+        <h2 className="reveal mt-3 font-display text-3xl font-semibold sm:text-4xl">
+          Technical skills
+        </h2>
+        <p className="reveal mt-3 max-w-2xl text-lg text-muted">
+          Confirmed from the existing portfolio and the two featured systems.
+          No inflated cloud certifications or unused tools.
+        </p>
+
+        <div className="reveal mt-10 grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-7">
+          {icons.map(({ name, icon: Icon }) => (
+            <div
+              key={name}
+              className="flex flex-col items-center gap-2 rounded-2xl border border-border bg-surface px-3 py-4 text-center"
+            >
+              <Icon className="text-xl text-accent" aria-hidden="true" />
+              <span className="text-xs font-medium text-muted">{name}</span>
+            </div>
+          ))}
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {skillCategories.map((category, index) => (
+        <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {groups.map((group, index) => (
             <div
-              key={index}
-              className="group bg-gray-50 rounded-xl p-8 border border-gray-200 hover:border-blue-400 hover:shadow-lg transition-all duration-300"
+              key={group.title}
+              className="reveal rounded-2xl border border-border bg-surface p-5"
+              style={{ transitionDelay: `${index * 50}ms` }}
             >
-              {/* Category Title */}
-              <h3 className={`text-xl font-bold bg-gradient-to-r ${category.color} bg-clip-text text-transparent mb-6`}>
-                {category.title}
+              <h3 className="font-display text-sm font-semibold uppercase tracking-wider text-muted">
+                {group.title}
               </h3>
-
-              {/* Skills Grid */}
-              <div className="flex flex-wrap gap-3">
-                {category.skills.map((skill, idx) => (
+              <div className="mt-3 flex flex-wrap gap-2">
+                {group.items.map((item) => (
                   <span
-                    key={idx}
-                    className="px-4 py-2 bg-white border border-gray-300 text-gray-800 rounded-lg text-sm font-medium group-hover:border-blue-400 group-hover:bg-blue-50 transition-all duration-300"
+                    key={item}
+                    className="rounded-full bg-elevated px-3 py-1 text-sm text-fg"
                   >
-                    {skill}
+                    {item}
                   </span>
                 ))}
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Proficiency Note */}
-        <div className="mt-16 bg-blue-50 border border-blue-200 rounded-xl p-8 text-center">
-          <p className="text-gray-700 text-lg">
-            Strong expertise in <span className="font-bold text-blue-600">Java, Spring Boot, React, TypeScript, and Android</span>. 
-            Experienced with data structures, algorithms, system design, and cloud-native applications.
-          </p>
         </div>
       </div>
     </section>

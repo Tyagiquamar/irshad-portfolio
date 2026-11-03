@@ -1,7 +1,7 @@
 export const portfolioData = {
   name: 'Mohd Irshad',
-  title: 'Full-Stack Developer & Competitive Programmer',
-  subtitle: 'Building high-performance systems with strong algorithmic thinking',
+  title: 'Software Engineer',
+  subtitle: 'Backend systems, durable workflows, and coding-agent evaluation',
   roles: [
     'Software Engineer',
     'Backend Engineer',
@@ -12,7 +12,7 @@ export const portfolioData = {
   email: 'mohdirshad1306@gmail.com',
   phone: '+91 9721962102',
   location: 'Pune, India',
-  resume: '/resume.pdf',
+  resume: '',
   profileImage: '/profile.png',
 
   social: {
@@ -20,16 +20,18 @@ export const portfolioData = {
     github: 'https://github.com/siddiqueirshad',
     leetcode: 'https://leetcode.com/u/hydra_19/',
     codeforces: 'https://codeforces.com/profile/irshad',
-    codechef: 'https://codechef.com/users/irshad',
-    geeksforgeeks: 'https://geeksforgeeks.org/user/irshad',
+    codechef: 'https://www.codechef.com/users/irshad',
+    geeksforgeeks: 'https://www.geeksforgeeks.org/user/irshad/',
   },
 
   about: {
-    short: 'Full-stack developer with expertise in Android development, Spring Boot, and React. Strong competitive programmer ranking in top 3% on LeetCode and top 0.8% on GeeksforGeeks. Currently building AI agent evaluation systems at Handshake AI.',
-    long: 'I\'m a passionate developer focused on solving complex problems through thoughtful architecture and clean code. With a strong foundation in competitive programming (600+ DSA problems), I bring algorithmic thinking to every project. My experience spans from native Android development to full-stack web applications with Docker containerization. I\'m currently exploring AI systems and LLM evaluation.',
+    short:
+      'Software engineer building durable backend systems and evaluation tooling, with a competitive-programming foundation and production work in Java, Spring Boot, and React.',
+    long: "I'm a developer focused on turning complex coordination problems into reliable software. I have a strong algorithms background and work across backend services, full-stack web apps, and native Android. Lately that work has been durable workflow execution and coding-agent evaluation.",
     paragraphs: [
-      'I\'m a Software Engineer focused on building scalable and reliable applications using Java, Spring Boot, React, and Android. I enjoy turning complex problems into clean, maintainable solutions and designing systems that perform well as they grow.',
-      'My experience spans backend engineering, full-stack development, and Android development. I also have a strong foundation in data structures and algorithms, with 600+ problems solved on coding platforms. I\'m currently expanding my expertise in distributed systems, AI-powered applications, and LLM evaluation.',
+      "I'm a software engineer focused on building scalable, reliable applications with Java, Spring Boot, React, and Android. I like turning messy coordination problems into systems that recover cleanly and stay understandable as they grow.",
+      'My background spans backend engineering, full-stack development, and Android. Competitive programming is a real part of how I work: I have solved 600+ DSA problems and keep an active presence on LeetCode, Codeforces, CodeChef, and GeeksforGeeks.',
+      "I'm currently expanding that foundation into distributed execution, AI-agent evaluation, and LLM training work at Handshake AI.",
     ],
   },
 
@@ -43,7 +45,7 @@ export const portfolioData = {
         'Designing and developing challenging command-line tasks and multi-step problems to evaluate AI agent capabilities',
         'Creating realistic scenarios involving software engineering, algorithms, system design, and debugging',
         'Developing robust test cases and validation frameworks to assess AI agent performance and reasoning',
-      ]
+      ],
     },
     {
       company: 'CodeAlpha',
@@ -52,9 +54,9 @@ export const portfolioData = {
       location: 'Lucknow (Remote)',
       points: [
         'Implemented a Vehicle Maintenance App tracking schedules for up to 5 vehicles, improving user convenience by 30%',
-        'Reduced app load time by 20% through optimization techniques, ensuring smooth experience on 90% of devices',
-      ]
-    }
+        'Reduced app load time by 20% through optimization techniques, ensuring a smoother experience on 90% of devices',
+      ],
+    },
   ],
 
   education: {
@@ -71,44 +73,112 @@ export const portfolioData = {
     backend: ['Spring Boot', 'REST APIs', 'JWT Authentication', 'Hibernate'],
     databases: ['MySQL', 'PostgreSQL', 'Redis', 'JDBC'],
     devops: ['Docker', 'Git', 'GitHub', 'Maven', 'Postman'],
-    concepts: ['Data Structures & Algorithms', 'OOP', 'DBMS', 'Operating Systems', 'Computer Networks'],
+    concepts: [
+      'Data Structures & Algorithms',
+      'OOP',
+      'DBMS',
+      'Operating Systems',
+      'Computer Networks',
+    ],
   },
 
   projects: [
     {
-      id: 1,
-      title: 'E-Commerce Android Application',
-      description: 'Full-featured native Android app with secure payment integration and real-time inventory management',
-      image: '/projects/ecommerce.jpg',
-      tech: ['Java', 'Android SDK', 'Spring Boot', 'MySQL', 'JWT', 'Docker'],
-      highlights: [
-        'User authentication with JWT tokens and BCrypt hashing',
-        'Product browsing with advanced filtering and search',
-        'Shopping cart and checkout with transactional safety',
-        'Order history and tracking',
-        'REST APIs with pagination and inventory validation',
-        'Docker containerized backend',
+      id: 'stepwise',
+      title: 'Stepwise',
+      kicker: 'Durable workflow orchestration',
+      description:
+        'A PostgreSQL-backed DAG orchestrator that runs dependent tasks on a worker pool with leases, fencing, retries, and a complete attempt history.',
+      image: '/projects/stepwise-architecture.svg',
+      images: [
+        {
+          src: '/projects/stepwise-architecture.svg',
+          alt: 'Stepwise architecture diagram showing API, workers, PostgreSQL coordination, and Redis live events',
+        },
       ],
-      github: 'https://github.com/siddiqueirshad/ecommerce-app',
-      demo: 'https://github.com/siddiqueirshad/ecommerce-app',
+      tech: ['Java 21', 'Spring Boot', 'PostgreSQL', 'Redis', 'React', 'TypeScript', 'Docker'],
+      challenges: [
+        'Workers never call the API. Claims, leases, heartbeats, and fencing all go through PostgreSQL with SKIP LOCKED.',
+        'Crashed or partitioned workers are recovered by lease expiry instead of split-brain double-applies.',
+        'HTTP tasks are allowlisted and DNS-pinned, with stable Idempotency-Key headers because execution is at-least-once.',
+      ],
+      highlights: [
+        'Drafts, server-side DAG validation, immutable published versions, and activation',
+        'Bounded concurrency, exponential backoff with jitter, and retryable error categories',
+        'Cron schedules, transactional outbox, SSE live events, tenant-scoped queries',
+        'React dashboard is implemented in-repo; no public hosted UI was found, so the visual is the real architecture',
+      ],
+      github: 'https://github.com/siddiqueirshad/Stepwise',
+      demo: '',
+      featured: true,
     },
     {
-      id: 2,
-      title: 'Distributed Job Queue System',
-      description: 'Full-stack system for asynchronous job processing with real-time monitoring and metrics',
-      image: '/projects/jobqueue.jpg',
-      tech: ['Java', 'Spring Boot', 'React', 'TypeScript', 'PostgreSQL', 'Docker', 'WebSockets'],
-      highlights: [
-        'Asynchronous job processing with Redis queue management',
-        'Real-time monitoring with WebSockets (STOMP)',
-        'Persistent storage with PostgreSQL',
-        'Prometheus metrics and monitoring',
-        'JWT-based authentication',
-        'Docker Compose deployment',
-        'Scalable backend architecture',
+      id: 'benchwright',
+      title: 'Benchwright',
+      kicker: 'Coding-agent evaluation',
+      description:
+        'A platform for publishing software-engineering benchmarks and scoring agent patches against hidden tests, with experiment comparison instead of a single pass rate.',
+      image: '/projects/benchwright-catalogue.png',
+      images: [
+        {
+          src: '/projects/benchwright-catalogue.png',
+          alt: 'Benchwright benchmark catalogue listing interval-merge, CSV quote bugfix, and order-validation API',
+        },
+        {
+          src: '/projects/benchwright-benchmark-detail.png',
+          alt: 'Benchwright benchmark detail for merge overlapping intervals with published version history',
+        },
+        {
+          src: '/projects/benchwright-runs.png',
+          alt: 'Benchwright evaluation runs table with fixture and demo-agent scores',
+        },
+        {
+          src: '/projects/benchwright-run-detail.png',
+          alt: 'Benchwright run detail for interval-merge with succeeded timeline and hidden-test counts',
+        },
+        {
+          src: '/projects/benchwright-experiment.png',
+          alt: 'Benchwright experiment comparing fixture-correct and fixture-failing arms with confidence intervals',
+        },
       ],
-      github: 'https://github.com/siddiqueirshad/distributed-job-queue',
-      demo: 'https://github.com/siddiqueirshad/distributed-job-queue',
+      tech: ['Java 21', 'Spring Boot', 'React', 'TypeScript', 'PostgreSQL', 'Docker'],
+      challenges: [
+        'Hidden tests never reach the public stage or API responses, so submitters cannot game the rubric.',
+        'A zero score is not treated as an unevaluable run. Infrastructure failures stay in a separate bucket.',
+        'Experiments compare arms with Wilson intervals rather than a single headline pass rate.',
+      ],
+      highlights: [
+        'Benchmark authoring with immutable published versions pinned by hashes',
+        'Evaluation runs with public/hidden counts, timelines, and fixture labelling',
+        'Experiment reports with per-arm results and outcome breakdowns',
+        'Hosted lite demo simulates evaluations; full stack uses Docker sandboxes and PostgreSQL',
+      ],
+      github: 'https://github.com/siddiqueirshad/benchwright',
+      demo: 'https://benchwright-bice.vercel.app/',
+      featured: true,
+    },
+    {
+      id: 'ecommerce',
+      title: 'E-Commerce Android Application',
+      kicker: 'Native Android + Spring Boot',
+      description:
+        'Native Android shopping app with JWT authentication, cart checkout, and a Dockerized Spring Boot backend.',
+      image: '',
+      images: [],
+      tech: ['Java', 'Android SDK', 'Spring Boot', 'MySQL', 'JWT', 'Docker'],
+      challenges: [
+        'Keeping cart checkout transactional against inventory validation on the backend.',
+        'Shipping a native client against a containerized REST API with pagination and search.',
+      ],
+      highlights: [
+        'User authentication with JWT tokens and BCrypt hashing',
+        'Product browsing with filtering and search',
+        'Shopping cart and checkout with transactional safety',
+        'REST APIs with pagination and inventory validation',
+      ],
+      github: 'https://github.com/siddiqueirshad/ecommerce-app',
+      demo: '',
+      featured: false,
     },
   ],
 
@@ -117,72 +187,57 @@ export const portfolioData = {
       platform: 'LeetCode',
       rating: '2007+',
       rank: 'Top 3% globally',
-      badge: '🏆',
       link: 'https://leetcode.com/u/hydra_19/',
     },
     {
       platform: 'GeeksforGeeks',
       rating: '2023+ (5-star)',
       rank: 'Top 0.8% globally',
-      badge: '⭐',
-      link: 'https://geeksforgeeks.org/user/irshad',
+      link: 'https://www.geeksforgeeks.org/user/irshad/',
     },
     {
       platform: 'Codeforces',
       rating: '1636',
       rank: 'Expert',
-      badge: '🎯',
       link: 'https://codeforces.com/profile/irshad',
     },
     {
       platform: 'CodeChef',
       rating: '1903+',
       rank: '4-star',
-      badge: '⭐',
-      link: 'https://codechef.com/users/irshad',
+      link: 'https://www.codechef.com/users/irshad',
     },
   ],
 
   stats: [
-    { label: 'DSA Problems Solved', value: '600+' },
-    { label: 'Projects Completed', value: '10+' },
-    { label: 'Years of Experience', value: '3+' },
-    { label: 'LeetCode Rank', value: 'Top 3%' },
-  ],
-
-  testimonials: [
-    {
-      text: 'Mohd is an exceptional developer with strong problem-solving skills. His contributions to the codebase were immediately impactful.',
-      author: 'Project Lead',
-      company: 'CodeAlpha',
-    },
-    {
-      text: 'Impressed by the quality of system design and code organization. A rare combination of competitive programming skills and practical engineering.',
-      author: 'Tech Mentor',
-      company: 'Independent',
-    },
+    { label: 'DSA problems solved', value: '600+' },
+    { label: 'LeetCode', value: 'Top 3%' },
+    { label: 'GeeksforGeeks', value: 'Top 0.8%' },
+    { label: 'Codeforces', value: 'Expert' },
   ],
 
   certificates: [
     {
       title: 'Certificate in Artificial Intelligence',
       issuer: 'Infosys Foundation & ICT Academy',
-      link: '#',
+      link: '',
     },
     {
       title: 'Problem Solving',
       issuer: 'HackerRank',
-      link: '#',
+      link: '',
     },
     {
       title: 'Android Development Training',
       issuer: 'PG Tech Solutions',
-      link: '#',
+      link: '',
     },
     {
       title: 'Object-Oriented Programming in Java',
       issuer: 'Great Learning',
-      link: '#',
+      link: '',
     },
   ],
 };
+
+export type Project = (typeof portfolioData.projects)[number];

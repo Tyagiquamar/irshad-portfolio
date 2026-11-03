@@ -1,78 +1,72 @@
 'use client';
 
-import { Mail, Phone, MapPin, ExternalLink } from 'lucide-react';
+import { Mail, MapPin, Phone } from 'lucide-react';
 import { FiGithub as Github, FiLinkedin as Linkedin } from 'react-icons/fi';
 import { portfolioData } from '@/data/portfolio';
+import { useReveal } from '@/hooks/useReveal';
 
 export default function Contact() {
-  return (
-    <section id="contact" className="py-20 bg-white">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Get In Touch</h2>
-          <p className="text-xl text-gray-600">Let&apos;s connect and build something amazing together</p>
-        </div>
+  const { ref, visible } = useReveal<HTMLDivElement>();
 
-        <div className="grid sm:grid-cols-3 gap-6 mb-12">
+  return (
+    <section id="contact" className="border-t border-border bg-elevated/60 py-20 sm:py-24">
+      <div
+        ref={ref}
+        className={`reveal-root mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8 ${
+          visible ? 'is-visible' : ''
+        }`}
+      >
+        <p className="reveal text-sm font-semibold uppercase tracking-[0.18em] text-accent">
+          Contact
+        </p>
+        <h2 className="reveal mt-3 font-display text-3xl font-semibold sm:text-4xl">
+          Get in touch
+        </h2>
+        <p className="reveal mx-auto mt-3 max-w-xl text-lg text-muted">
+          The fastest path is email. GitHub and LinkedIn are also current.
+        </p>
+
+        <div className="mt-10 grid gap-4 sm:grid-cols-3">
           <a
             href={`mailto:${portfolioData.email}`}
-            className="flex flex-col items-center text-center gap-3 p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-blue-400 hover:shadow-lg transition-all duration-300"
+            className="reveal rounded-2xl border border-border bg-surface p-6"
           >
-            <div className="p-4 bg-blue-100 rounded-lg">
-              <Mail className="text-blue-600" size={24} />
-            </div>
-            <h3 className="text-lg font-bold text-gray-900">Email</h3>
-            <span className="text-blue-600 font-medium break-all">{portfolioData.email}</span>
+            <Mail className="mx-auto text-accent" />
+            <h3 className="mt-3 font-semibold">Email</h3>
+            <p className="mt-1 break-all text-sm text-accent">{portfolioData.email}</p>
           </a>
-
           <a
-            href={`tel:${portfolioData.phone}`}
-            className="flex flex-col items-center text-center gap-3 p-6 bg-gray-50 rounded-xl border border-gray-200 hover:border-blue-400 hover:shadow-lg transition-all duration-300"
+            href={`tel:${portfolioData.phone.replace(/\s/g, '')}`}
+            className="reveal rounded-2xl border border-border bg-surface p-6"
           >
-            <div className="p-4 bg-blue-100 rounded-lg">
-              <Phone className="text-blue-600" size={24} />
-            </div>
-            <h3 className="text-lg font-bold text-gray-900">Phone</h3>
-            <span className="text-blue-600 font-medium">{portfolioData.phone}</span>
+            <Phone className="mx-auto text-accent" />
+            <h3 className="mt-3 font-semibold">Phone</h3>
+            <p className="mt-1 text-sm text-accent">{portfolioData.phone}</p>
           </a>
-
-          <div className="flex flex-col items-center text-center gap-3 p-6 bg-gray-50 rounded-xl border border-gray-200">
-            <div className="p-4 bg-blue-100 rounded-lg">
-              <MapPin className="text-blue-600" size={24} />
-            </div>
-            <h3 className="text-lg font-bold text-gray-900">Location</h3>
-            <span className="text-gray-600 font-medium">{portfolioData.location}</span>
+          <div className="reveal rounded-2xl border border-border bg-surface p-6">
+            <MapPin className="mx-auto text-accent" />
+            <h3 className="mt-3 font-semibold">Location</h3>
+            <p className="mt-1 text-sm text-muted">{portfolioData.location}</p>
           </div>
         </div>
 
-        <div className="pt-10 border-t border-gray-200 text-center">
-          <h3 className="text-xl font-bold text-gray-900 mb-6">Connect</h3>
-          <div className="flex flex-wrap justify-center gap-4">
-            <a
-              href={portfolioData.social.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors font-semibold"
-            >
-              <Github size={20} /> GitHub
-            </a>
-            <a
-              href={portfolioData.social.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-semibold"
-            >
-              <Linkedin size={20} /> LinkedIn
-            </a>
-            <a
-              href={portfolioData.social.leetcode}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-3 border-2 border-gray-300 text-gray-900 rounded-lg hover:border-blue-600 hover:text-blue-600 transition-colors font-semibold"
-            >
-              <ExternalLink size={20} /> LeetCode
-            </a>
-          </div>
+        <div className="reveal mt-8 flex flex-wrap justify-center gap-3">
+          <a
+            href={portfolioData.social.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full bg-fg px-4 py-2 text-sm font-semibold text-bg"
+          >
+            <Github size={16} /> GitHub
+          </a>
+          <a
+            href={portfolioData.social.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm font-semibold"
+          >
+            <Linkedin size={16} /> LinkedIn
+          </a>
         </div>
       </div>
     </section>
