@@ -12,6 +12,15 @@ function ProjectGallery({ project }: { project: Project }) {
   const [open, setOpen] = useState(false);
   const images = project.images;
 
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setOpen(false);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [open]);
+
   if (images.length === 0) {
     return (
       <div className="flex min-h-[240px] items-center justify-center rounded-2xl border border-dashed border-border bg-elevated px-6 text-sm text-muted">
@@ -22,15 +31,6 @@ function ProjectGallery({ project }: { project: Project }) {
   }
 
   const current = images[active] ?? images[0];
-
-  useEffect(() => {
-    if (!open) return;
-    const onKey = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setOpen(false);
-    };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, [open]);
 
   return (
     <div>

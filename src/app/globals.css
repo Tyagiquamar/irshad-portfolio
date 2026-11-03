@@ -70,12 +70,6 @@ a {
 }
 
 .reveal-root .reveal {
-  opacity: 0;
-  transform: translateY(14px);
-  transition: opacity 0.45s ease, transform 0.45s ease;
-}
-
-.reveal-root.is-visible .reveal {
   opacity: 1;
   transform: none;
 }

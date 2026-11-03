@@ -13,7 +13,7 @@ export default function Hero() {
         className="pointer-events-none absolute inset-0 bg-grid grid-mask opacity-60"
         aria-hidden="true"
       />
-      <div className="relative mx-auto grid min-h-[calc(100svh-4rem)] max-w-6xl items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:px-8 lg:py-24">
+      <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:px-8 lg:py-20">
         <div className="animate-fade">
           <p className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/70 px-3 py-1 text-xs font-medium text-muted">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" aria-hidden="true" />
