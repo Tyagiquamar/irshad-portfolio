@@ -19,8 +19,8 @@ export default function Experience() {
         </p>
         <h2 className="reveal mt-3 font-display text-4xl sm:text-5xl">Work</h2>
         <p className="reveal mt-3 max-w-2xl text-muted">
-          Most recent first. Backend systems, agent evaluation, and Android
-          product work.
+          Most recent first. Android product work, full-stack apps, and current
+          agent-evaluation work at Handshake AI.
         </p>
 
         <div className="mt-12 space-y-12">

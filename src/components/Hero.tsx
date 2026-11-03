@@ -4,10 +4,10 @@ import Image from 'next/image';
 import { portfolioData } from '@/data/portfolio';
 
 const facts = [
-  { label: 'Role', value: 'Software Engineer' },
+  { label: 'Role', value: portfolioData.title },
   { label: 'Availability', value: 'Open to roles · Pune / Remote' },
   { label: 'Previous', value: 'Android Developer Intern · CodeAlpha' },
-  { label: 'Focus', value: 'Java · Spring Boot · Durable systems' },
+  { label: 'Focus', value: 'Java · Spring Boot · React · Android' },
   { label: 'Open Source', value: '45 merged pull requests' },
   { label: 'Location', value: portfolioData.location },
 ];
@@ -18,15 +18,14 @@ export default function Hero() {
       <div className="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[minmax(0,1.4fr)_minmax(280px,0.8fr)] lg:px-8 lg:py-20">
         <div className="animate-fade">
           <p className="font-mono text-xs uppercase tracking-[0.18em] text-muted">
-            Backend systems / {portfolioData.location} / Open to roles
+            Full-stack / Android / {portfolioData.location} / Open to roles
           </p>
           <h1 className="mt-5 font-display text-[clamp(2.8rem,7vw,5.2rem)] leading-[0.95] tracking-tight">
             {portfolioData.name}
           </h1>
           <p className="mt-4 text-lg text-fg">{portfolioData.subtitle}</p>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-muted">
-            {portfolioData.about.short} Currently expanding that work into
-            distributed execution and coding-agent evaluation at Handshake AI.
+            {portfolioData.about.short}
           </p>
           <div className="mt-8 flex flex-wrap gap-x-5 gap-y-2 text-sm">
             <a href="#experience" className="text-accent hover:underline">
@@ -71,7 +70,7 @@ export default function Hero() {
         <aside className="animate-fade space-y-8 [animation-delay:80ms]">
           <Image
             src={portfolioData.profileImage}
-            alt={`${portfolioData.name}, software engineer`}
+            alt={`${portfolioData.name}, full-stack and Android developer`}
             width={320}
             height={320}
             priority

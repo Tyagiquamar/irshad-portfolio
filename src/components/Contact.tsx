@@ -21,8 +21,7 @@ export default function Contact() {
           Reach out.
         </h2>
         <p className="reveal mt-4 max-w-xl text-muted">
-          Open to software engineering roles where backend depth, durable
-          systems, and evaluation work matter.
+          Open to full-stack and Android roles.
         </p>
         <div className="reveal mt-8 space-y-2 text-sm">
           <p>

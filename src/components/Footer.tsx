@@ -19,7 +19,7 @@ export default function Footer() {
         <div>
           <p className="font-display text-xl">Mohd Irshad</p>
           <p className="mt-2 max-w-sm text-sm text-muted">
-            Software engineer. Durable systems, evaluation tooling, and
+            Full-stack and Android developer. Java, Spring Boot, React, and
             competitive programming.
           </p>
         </div>

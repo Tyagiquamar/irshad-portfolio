@@ -1,13 +1,11 @@
 export const portfolioData = {
   name: 'Mohd Irshad',
-  title: 'Software Engineer',
-  subtitle: 'Backend systems, durable workflows, and coding-agent evaluation',
+  title: 'Full-Stack / Android Developer',
+  subtitle: 'Full-stack web and native Android apps with Java, Spring Boot, and React',
   roles: [
-    'Software Engineer',
-    'Backend Engineer',
     'Full-Stack Developer',
-    'Competitive Programmer',
     'Android Developer',
+    'Competitive Programmer',
   ],
   email: 'mohdirshad1306@gmail.com',
   phone: '+91 9721962102',
@@ -26,12 +24,12 @@ export const portfolioData = {
 
   about: {
     short:
-      'Software engineer building durable backend systems and evaluation tooling, with a competitive-programming foundation and production work in Java, Spring Boot, and React.',
-    long: "I'm a developer focused on turning complex coordination problems into reliable software. I have a strong algorithms background and work across backend services, full-stack web apps, and native Android. Lately that work has been durable workflow execution and coding-agent evaluation.",
+      'Full-stack and Android developer shipping web and native apps with Java, Spring Boot, and React, with a competitive-programming foundation.',
+    long: "I'm a full-stack and Android developer. I build product UIs in React, APIs in Spring Boot, and native Android clients, and I keep a serious competitive-programming practice.",
     paragraphs: [
-      "I'm a software engineer focused on building scalable, reliable applications with Java, Spring Boot, React, and Android. I like turning messy coordination problems into systems that recover cleanly and stay understandable as they grow.",
-      'My background spans backend engineering, full-stack development, and Android. Competitive programming is a real part of how I work: I have solved 600+ DSA problems and keep an active presence on LeetCode, Codeforces, CodeChef, and GeeksforGeeks.',
-      "I'm currently expanding that foundation into distributed execution, AI-agent evaluation, and LLM training work at Handshake AI.",
+      "I'm a full-stack and Android developer. I build product features across React, Spring Boot, and native Android, from authenticated APIs and dashboards to shopping and maintenance apps on device.",
+      'Competitive programming is a real part of how I work: I have solved 600+ DSA problems and keep an active presence on LeetCode, Codeforces, CodeChef, and GeeksforGeeks.',
+      'I interned as an Android developer at CodeAlpha. I currently evaluate AI agents and train LLM tasks at Handshake AI.',
     ],
   },
 

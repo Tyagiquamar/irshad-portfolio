@@ -28,12 +28,13 @@ const mono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://irshad-portfolio-seven.vercel.app'),
-  title: 'Mohd Irshad — Software Engineer',
+  title: 'Mohd Irshad | Full-Stack / Android Developer',
   description:
-    'Portfolio of Mohd Irshad, a software engineer building durable workflow systems and coding-agent evaluation platforms with Java, Spring Boot, and React.',
+    'Portfolio of Mohd Irshad, a full-stack and Android developer building web and native apps with Java, Spring Boot, and React.',
   keywords: [
     'Mohd Irshad',
-    'Software Engineer',
+    'Full-Stack Developer',
+    'Android Developer',
     'Spring Boot',
     'Java',
     'React',
@@ -43,18 +44,18 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Mohd Irshad' }],
   openGraph: {
-    title: 'Mohd Irshad — Software Engineer',
+    title: 'Mohd Irshad | Full-Stack / Android Developer',
     description:
-      'Durable workflow orchestration, coding-agent evaluation, and backend systems.',
+      'Full-stack web and native Android apps with Java, Spring Boot, and React.',
     url: 'https://irshad-portfolio-seven.vercel.app',
     type: 'website',
     locale: 'en_IN',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Mohd Irshad — Software Engineer',
+    title: 'Mohd Irshad | Full-Stack / Android Developer',
     description:
-      'Durable workflow orchestration, coding-agent evaluation, and backend systems.',
+      'Full-stack web and native Android apps with Java, Spring Boot, and React.',
   },
   alternates: {
     canonical: 'https://irshad-portfolio-seven.vercel.app',
