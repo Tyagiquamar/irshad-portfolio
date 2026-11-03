@@ -8,7 +8,7 @@ const facts = [
   { label: 'Availability', value: 'Open to roles · Pune / Remote' },
   { label: 'Previous', value: 'Android Developer Intern · CodeAlpha' },
   { label: 'Focus', value: 'Java · Spring Boot · Durable systems' },
-  { label: 'Open Source', value: 'Stepwise · Benchwright' },
+  { label: 'Open Source', value: '45 merged pull requests' },
   { label: 'Location', value: portfolioData.location },
 ];
 
