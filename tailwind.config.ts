@@ -21,15 +21,8 @@ const config: Config = {
       },
       fontFamily: {
         sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
-        display: ['var(--font-display)', 'var(--font-sans)', 'system-ui', 'sans-serif'],
+        display: ['var(--font-display)', 'Georgia', 'serif'],
         mono: ['var(--font-mono)', 'ui-monospace', 'monospace'],
-      },
-      boxShadow: {
-        glow: '0 0 80px rgb(var(--accent) / 0.18)',
-        card: '0 24px 60px rgb(15 23 42 / 0.12)',
-      },
-      backgroundImage: {
-        grid: 'linear-gradient(rgb(var(--border) / 0.45) 1px, transparent 1px), linear-gradient(90deg, rgb(var(--border) / 0.45) 1px, transparent 1px)',
       },
     },
   },

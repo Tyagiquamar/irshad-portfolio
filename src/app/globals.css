@@ -3,27 +3,27 @@
 @tailwind utilities;
 
 :root {
-  --bg: 246 247 251;
+  --bg: 247 247 244;
   --surface: 255 255 255;
-  --elevated: 248 250 252;
-  --fg: 15 23 42;
-  --muted: 71 85 105;
-  --accent: 37 99 235;
-  --accent-soft: 219 234 254;
-  --border: 226 232 240;
-  --ring: 37 99 235;
+  --elevated: 242 241 236;
+  --fg: 20 18 11;
+  --muted: 92 88 80;
+  --accent: 245 78 0;
+  --accent-soft: 255 232 214;
+  --border: 226 223 214;
+  --ring: 245 78 0;
 }
 
 .dark {
-  --bg: 8 12 20;
-  --surface: 15 20 32;
-  --elevated: 20 27 42;
-  --fg: 226 232 240;
-  --muted: 148 163 184;
-  --accent: 96 165 250;
-  --accent-soft: 30 58 95;
-  --border: 38 50 72;
-  --ring: 96 165 250;
+  --bg: 20 18 11;
+  --surface: 28 26 20;
+  --elevated: 36 33 26;
+  --fg: 237 236 229;
+  --muted: 161 157 148;
+  --accent: 245 78 0;
+  --accent-soft: 62 32 14;
+  --border: 58 54 45;
+  --ring: 245 78 0;
 }
 
 * {
@@ -32,7 +32,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5.5rem;
+  scroll-padding-top: 5rem;
 }
 
 body {
@@ -57,18 +57,6 @@ a {
   outline-offset: 3px;
 }
 
-.ambient {
-  background:
-    radial-gradient(900px 420px at 12% -10%, rgb(var(--accent) / 0.16), transparent 55%),
-    radial-gradient(700px 360px at 92% 0%, rgb(99 102 241 / 0.14), transparent 50%),
-    rgb(var(--bg));
-}
-
-.grid-mask {
-  background-size: 56px 56px;
-  mask-image: radial-gradient(ellipse 70% 55% at 50% 20%, black, transparent);
-}
-
 .reveal-root .reveal {
   opacity: 1;
   transform: none;
@@ -91,7 +79,7 @@ a {
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(8px);
   }
   to {
     opacity: 1;
@@ -100,5 +88,5 @@ a {
 }
 
 .animate-fade {
-  animation: fadeUp 0.6s ease both;
+  animation: fadeUp 0.45s ease both;
 }

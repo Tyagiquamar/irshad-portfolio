@@ -23,7 +23,7 @@ function ProjectGallery({ project }: { project: Project }) {
 
   if (images.length === 0) {
     return (
-      <div className="flex min-h-[240px] items-center justify-center rounded-2xl border border-dashed border-border bg-elevated px-6 text-sm text-muted">
+      <div className="flex min-h-[240px] items-center justify-center border border-dashed border-border bg-elevated px-6 text-sm text-muted">
         Source and technical write-up live on GitHub. No product screenshots for
         this project.
       </div>
@@ -37,7 +37,7 @@ function ProjectGallery({ project }: { project: Project }) {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="group relative block w-full overflow-hidden rounded-2xl border border-border bg-elevated"
+        className="group relative block w-full overflow-hidden border border-border bg-elevated"
         aria-label={`Open screenshot: ${current.alt}`}
       >
         {current.src.endsWith('.svg') ? (
@@ -57,7 +57,6 @@ function ProjectGallery({ project }: { project: Project }) {
             sizes="(max-width: 1024px) 100vw, 720px"
           />
         )}
-        <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/25 to-transparent opacity-0 transition group-hover:opacity-100" />
       </button>
       {images.length > 1 && (
         <div className="mt-3 grid grid-cols-4 gap-2 sm:grid-cols-5">
@@ -128,7 +127,7 @@ function ProjectCard({ project }: { project: Project }) {
   const showDemo = Boolean(project.demo);
 
   return (
-    <article className="overflow-hidden rounded-3xl border border-border bg-surface shadow-card">
+    <article className="overflow-hidden border border-border bg-surface">
       <div className={`grid gap-0 ${project.featured ? 'lg:grid-cols-[1.08fr_0.92fr]' : ''}`}>
         <div className="p-4 sm:p-6">
           <ProjectGallery project={project} />
@@ -145,7 +144,7 @@ function ProjectCard({ project }: { project: Project }) {
             {project.tech.map((tech) => (
               <span
                 key={tech}
-                className="rounded-full border border-border bg-elevated px-3 py-1 text-xs font-medium text-muted"
+                className="border border-border bg-elevated px-2.5 py-1 text-xs text-muted"
               >
                 {tech}
               </span>
@@ -164,7 +163,7 @@ function ProjectCard({ project }: { project: Project }) {
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-fg px-4 py-2 text-sm font-semibold text-bg"
+              className="inline-flex items-center gap-2 rounded-md bg-fg px-4 py-2 text-sm font-medium text-bg"
             >
               <Github size={16} /> GitHub
             </a>
@@ -173,7 +172,7 @@ function ProjectCard({ project }: { project: Project }) {
                 href={project.demo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm font-semibold"
+                className="inline-flex items-center gap-2 rounded-md border border-border px-4 py-2 text-sm font-medium"
               >
                 <ExternalLink size={16} /> Live demo
               </a>
@@ -191,7 +190,7 @@ export default function Projects() {
   const rest = portfolioData.projects.filter((project) => !project.featured);
 
   return (
-    <section id="projects" className="py-20 sm:py-24">
+    <section id="projects" className="border-b border-border py-20 sm:py-24">
       <div
         ref={ref}
         className={`reveal-root mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 ${
@@ -199,16 +198,15 @@ export default function Projects() {
         }`}
       >
         <div className="max-w-2xl">
-          <p className="reveal text-sm font-semibold uppercase tracking-[0.18em] text-accent">
-            Selected work
+          <p className="reveal font-mono text-xs uppercase tracking-[0.18em] text-muted">
+            Selected Engineering Work
           </p>
-          <h2 className="reveal mt-3 font-display text-3xl font-semibold sm:text-4xl">
-            Featured projects
+          <h2 className="reveal mt-3 font-display text-4xl sm:text-5xl">
+            Projects
           </h2>
-          <p className="reveal mt-3 text-lg text-muted">
-            Two systems with real engineering depth: durable workflow execution
-            and coding-agent evaluation. Copy and screenshots match the running
-            products and repositories.
+          <p className="reveal mt-3 text-muted">
+            Case studies of the public systems above, with screenshots from the
+            running products.
           </p>
         </div>
 

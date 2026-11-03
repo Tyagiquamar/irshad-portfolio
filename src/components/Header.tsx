@@ -5,10 +5,10 @@ import { Menu, X } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 
 const navLinks = [
-  { href: '#about', label: 'About' },
+  { href: '#experience', label: 'Experience' },
+  { href: '#open-source', label: 'Open Source' },
   { href: '#projects', label: 'Projects' },
-  { href: '#skills', label: 'Skills' },
-  { href: '#achievements', label: 'Achievements' },
+  { href: '#about', label: 'About' },
   { href: '#contact', label: 'Contact' },
 ];
 
@@ -32,24 +32,21 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 border-b transition-colors ${
-        scrolled
-          ? 'border-border/80 bg-bg/80 backdrop-blur-xl'
-          : 'border-transparent bg-bg/40 backdrop-blur-md'
+      className={`sticky top-0 z-50 border-b ${
+        scrolled ? 'border-border bg-bg/95' : 'border-transparent bg-bg'
       }`}
     >
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <a href="#home" className="font-display text-lg font-semibold tracking-tight">
-          <span className="text-fg">Mohd</span>{' '}
-          <span className="text-accent">Irshad</span>
+      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <a href="#home" className="font-display text-xl tracking-tight">
+          Mohd Irshad
         </a>
 
-        <nav className="hidden items-center gap-7 md:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-6 md:flex" aria-label="Primary">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-muted transition hover:text-fg"
+              className="text-sm text-muted transition hover:text-fg"
             >
               {link.label}
             </a>
@@ -60,7 +57,7 @@ export default function Header() {
           <ThemeToggle />
           <a
             href="#contact"
-            className="rounded-full bg-accent px-4 py-2 text-sm font-semibold text-white transition hover:opacity-90"
+            className="rounded-md bg-accent px-3.5 py-1.5 text-sm font-medium text-white"
           >
             Contact
           </a>
@@ -71,7 +68,7 @@ export default function Header() {
           <button
             type="button"
             onClick={() => setIsOpen((open) => !open)}
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border"
             aria-expanded={isOpen}
             aria-controls="mobile-nav"
             aria-label={isOpen ? 'Close menu' : 'Open menu'}
@@ -87,24 +84,17 @@ export default function Header() {
           className="border-t border-border bg-bg px-4 py-4 md:hidden"
           aria-label="Mobile"
         >
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-1">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="rounded-lg px-2 py-2 text-fg hover:bg-elevated"
+                className="rounded-md px-2 py-2 text-fg hover:bg-elevated"
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}
               </a>
             ))}
-            <a
-              href="#contact"
-              className="rounded-lg bg-accent px-3 py-2 text-center font-semibold text-white"
-              onClick={() => setIsOpen(false)}
-            >
-              Contact
-            </a>
           </div>
         </nav>
       )}

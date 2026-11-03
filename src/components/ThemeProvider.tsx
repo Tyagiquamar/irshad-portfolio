@@ -41,11 +41,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const stored = readStoredTheme();
-    const next =
-      stored ??
-      (window.matchMedia('(prefers-color-scheme: dark)').matches
-        ? 'dark'
-        : 'light');
+    const next = stored ?? 'dark';
     setThemeState(next);
     applyTheme(next);
   }, []);

@@ -1,20 +1,18 @@
 import Hero from '@/components/Hero';
-import About from '@/components/About';
 import Experience from '@/components/Experience';
+import OpenSource from '@/components/OpenSource';
 import Projects from '@/components/Projects';
-import Skills from '@/components/Skills';
-import Achievements from '@/components/Achievements';
+import About from '@/components/About';
 import Contact from '@/components/Contact';
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <Projects />
-      <Skills />
-      <Achievements />
-      <About />
       <Experience />
+      <OpenSource />
+      <Projects />
+      <About />
       <Contact />
     </>
   );

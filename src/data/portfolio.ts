@@ -82,6 +82,36 @@ export const portfolioData = {
     ],
   },
 
+  openSource: [
+    {
+      title: 'Stepwise',
+      status: 'Public',
+      date: '2026',
+      repo: 'siddiqueirshad/Stepwise',
+      href: 'https://github.com/siddiqueirshad/Stepwise',
+      description:
+        'PostgreSQL-backed DAG orchestrator. Workers claim work through SKIP LOCKED leases, fencing, retries, and a complete attempt history.',
+    },
+    {
+      title: 'Benchwright',
+      status: 'Public',
+      date: '2026',
+      repo: 'siddiqueirshad/benchwright',
+      href: 'https://github.com/siddiqueirshad/benchwright',
+      description:
+        'Platform for publishing software-engineering benchmarks and scoring agent patches against hidden tests, with experiment comparison instead of a single pass rate.',
+    },
+    {
+      title: 'E-Commerce Android Application',
+      status: 'Public',
+      date: '2024',
+      repo: 'siddiqueirshad/ecommerce-app',
+      href: 'https://github.com/siddiqueirshad/ecommerce-app',
+      description:
+        'Native Android shopping client with JWT auth, cart checkout, and a Dockerized Spring Boot API with inventory validation.',
+    },
+  ],
+
   projects: [
     {
       id: 'stepwise',
@@ -118,16 +148,8 @@ export const portfolioData = {
       kicker: 'Coding-agent evaluation',
       description:
         'A platform for publishing software-engineering benchmarks and scoring agent patches against hidden tests, with experiment comparison instead of a single pass rate.',
-      image: '/projects/benchwright-catalogue.png',
+      image: '/projects/benchwright-runs.png',
       images: [
-        {
-          src: '/projects/benchwright-catalogue.png',
-          alt: 'Benchwright benchmark catalogue listing interval-merge, CSV quote bugfix, and order-validation API',
-        },
-        {
-          src: '/projects/benchwright-benchmark-detail.png',
-          alt: 'Benchwright benchmark detail for merge overlapping intervals with published version history',
-        },
         {
           src: '/projects/benchwright-runs.png',
           alt: 'Benchwright evaluation runs table with fixture and demo-agent scores',
@@ -139,6 +161,10 @@ export const portfolioData = {
         {
           src: '/projects/benchwright-experiment.png',
           alt: 'Benchwright experiment comparing fixture-correct and fixture-failing arms with confidence intervals',
+        },
+        {
+          src: '/projects/benchwright-benchmark-detail.png',
+          alt: 'Benchwright benchmark detail for merge overlapping intervals with published version history',
         },
       ],
       tech: ['Java 21', 'Spring Boot', 'React', 'TypeScript', 'PostgreSQL', 'Docker'],
